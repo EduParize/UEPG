@@ -57,7 +57,7 @@ for(int i=0;i<tamanho;i++){
         for(int j=i+quantidade;j<=tamanho-1;j++){
             lista[j-quantidade]=lista[j];
         }
-        tamanho--;
+        tamanho-=quantidade;
     }
 
 }
@@ -106,14 +106,14 @@ int main()
 {
 
 
-    insereLista(20);
     insereLista(5);
-    insereLista(7);
+    insereLista(67);
+    insereLista(5);
+    insereLista(5);
+    insereLista(13);
     insereLista(2);
-    insereLista(1);
-    insereLista(20);
 
-    removeValor(20);
+    //removeValor(5);
 
     imprimeLista();
 

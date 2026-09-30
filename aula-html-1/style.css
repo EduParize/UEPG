@@ -1,0 +1,51 @@
+h1{
+    font-style: italic;
+    color:blueviolet;
+    }
+.p1{
+    color: green;
+    font-weight: bold;
+    font-size: 9pt;
+    border-bottom: 1px;
+    margin-bottom: 6px;
+    }
+.p2{
+    color: white;
+    font-weight: bold;
+    font-size: 9pt;
+    /*background-color: blueviolet;*/
+    border-bottom: 1px;
+    margin-bottom: 6px;
+    }
+.tito{
+    width: 100%;
+    margin-top: 25px;
+    margin-right: 26px;
+    margin-left: 20px;
+    padding-left: 20px;
+    border-radius: 30%;
+    background: linear-gradient(to right, red, green);
+    color:white;
+    padding-bottom: 5px;
+    padding-top: 5px;
+}
+.sasso{
+    background-color: aquamarine;
+}
+.text1{
+    width: 100%;
+    margin-top: 12px;
+    border-radius: 5px;
+}
+.arcoiro-do-tito{
+    background: linear-gradient(to right, red, orange, yellow, green, blue, indigo, violet);
+}
+body{
+    font-style: helvetica;
+    background-color: chocolate;
+}
+.titolo{
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}

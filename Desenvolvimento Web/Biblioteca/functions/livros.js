@@ -1,19 +1,20 @@
 import { locacao, livros, indexLivros } from "../db.js"
+import { livroModel } from "../check.js"
 
 export function createLivro(req, res) {
 
     const { titulo, isbn, edicao, locado } = req.body
 
     if (!titulo) {
-        res.status(400).json({ error: "O nome eh uma propriedade obrigatoria" })
+        res.status(400).json({ error: "O titulo eh uma propriedade obrigatoria" })
         return
     }
     if (!isbn) {
-        res.status(400).json({ error: "O CPF eh uma propriedade obrigatoria" })
+        res.status(400).json({ error: "O ISBN eh uma propriedade obrigatoria" })
         return
     }
     if (!edicao) {
-        res.status(400).json({ error: "O email eh uma propriedade obrigatoria" })
+        res.status(400).json({ error: "A edicao eh uma propriedade obrigatoria" })
         return
     }
 
@@ -24,6 +25,12 @@ export function createLivro(req, res) {
         edicao: edicao,
         locado: false
     }
+    const {error} = livroModel.validate(newLivro)
+    
+        if(error){
+            res.status(400).send({mens: error})
+            return
+        }
     indexLivros++
     livros.push(newLivro)
     res.status(201).json(newLivro)

@@ -1,5 +1,6 @@
 import { users, indexUser } from "../db.js"
-
+import { usersModel } from "../check.js"
+ 
 export function createUser(req, res) {
 
     const { nome, cpf, email, senha } = req.body
@@ -27,6 +28,13 @@ export function createUser(req, res) {
         cpf: cpf,
         email: email,
         senha: senha
+    }
+
+    const {error} = usersModel.validate(newUser)
+
+    if(error){
+        res.status(400).send({mens: error})
+        return
     }
     indexUser++
     users.push(newUser)

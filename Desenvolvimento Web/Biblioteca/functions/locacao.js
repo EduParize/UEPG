@@ -1,4 +1,5 @@
 import { locacao, indexLocacao } from "../db.js"
+import { locacaoModel } from "../check.js"
 
 export function createLocacao(req, res) {
 
@@ -18,6 +19,12 @@ export function createLocacao(req, res) {
         id_livro: id_livro,
         status: false
     }
+    const {error} = locacaoModel.validate(newLocacao)
+    
+        if(error){
+            res.status(400).send({mens: error})
+            return
+        }
     indexLocacao++
     locacao.push(newLocacao)
     res.status(201).json(newLocacao)

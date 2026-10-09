@@ -1,0 +1,9 @@
+build/
+dist/
+output/
+*.class
+*.jar
+*.exe
+
+node_modules/
+.env
